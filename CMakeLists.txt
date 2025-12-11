@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_compile_options(-Wall -Wextra -Werror)
+add_compile_options(-O2 -Wall -Wextra -Werror)
 
 option(BUILD_TESTS "Build test executable" ON)
 
@@ -29,7 +29,7 @@ include(FetchContent)
     TEST_UNARY
     TEST_DIM_MUL_DIV
     TEST_SCALAR_OPS
-    # TEST_COMPARISONS
+    TEST_COMPARISONS
     TEST_COMPILETIME
     # TEST_LITERALS
   )

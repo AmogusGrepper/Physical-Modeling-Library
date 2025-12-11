@@ -1,5 +1,10 @@
-template <int T, int L, int M> struct Quantity {
-  double value;
+#include <compare>
+
+template <int T, int L, int M>
+struct Quantity {
+  double value {};
+
+  auto operator<=>(const Quantity&) const = default;
 };
 
 // ==== ADD SUB ====
@@ -35,7 +40,7 @@ Quantity<T, L, M> operator-(Quantity<T, L, M> rhs) {
   return {-rhs.value};
 }
 
-// + unary
+// + unaryP
 template <int T, int L, int M>
 Quantity<T, L, M> operator+(Quantity<T, L, M> rhs) {
   return {+rhs.value};
@@ -81,6 +86,9 @@ Quantity<T, L, M> operator/=(Quantity<T, L, M> &lhs, double rhs) {
   lhs.value /= rhs;
   return lhs;
 }
+
+// ==== Comparisons ops ====
+
 
 // ==== Common types ====
 using Time = Quantity<1, 0, 0>;
