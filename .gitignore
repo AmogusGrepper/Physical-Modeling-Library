@@ -1,41 +1,49 @@
-# Prerequisites
-*.d
+# CMake build tree
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+_deps/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+# Local build outputs
+main
+test
+test_main
 *.exe
 *.out
 *.app
 
-# debug information files
+# Object and library artifacts
+*.o
+*.obj
+*.a
+*.la
+*.lib
+*.so
+*.dylib
+*.dll
+*.lai
+*.slo
+*.lo
+
+# Debug / profiling
+*.pdb
+*.ilk
 *.dwo
+*.gcno
+*.gcda
+*.prof
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Fortran modules
+*.mod
+*.smod
+
+# Test runner artifacts
+Testing/
+tests/Testing/
+tests/CTestTestfile.cmake*

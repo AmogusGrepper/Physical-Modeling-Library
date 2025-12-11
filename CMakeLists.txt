@@ -25,7 +25,7 @@ include(FetchContent)
 
   target_compile_definitions(test PRIVATE
     TEST_CONSTRUCT
-    # TEST_ADD_SUB
+    TEST_ADD_SUB
     # TEST_UNARY
     # TEST_DIM_MUL_DIV
     # TEST_SCALAR_OPS

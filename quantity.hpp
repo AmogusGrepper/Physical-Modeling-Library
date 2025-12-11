@@ -1,5 +1,3 @@
-
-
 template <int T, int L, int M>
 struct Quantity {
 	double value;
@@ -24,12 +22,14 @@ Quantity<T, L, M> operator-(Quantity<T, L, M> x, Quantity<T, L, M> y) {
 
 // +=
 template <int T, int L, int M>
-Quantity<T, L, M> operator+=(Quantity<T, L, M> x, Quantity<T, L, M> y) {
-	return {x.value + y.value};
+Quantity<T, L, M> &operator+=(Quantity<T, L, M>& lhs, Quantity<T, L, M> rhs) {
+  lhs.value += rhs.value;
+  return lhs;
 }
 
 // -=
 template <int T, int L, int M>
-Quantity<T, L, M> operator-=(Quantity<T, L, M> x, Quantity<T, L, M> y) {
-	return {x.value - y.value};
+Quantity<T, L, M> &operator-=(Quantity<T, L, M> &lhs, Quantity<T, L, M> rhs) {
+  lhs.value -= rhs.value;
+  return lhs;
 }
