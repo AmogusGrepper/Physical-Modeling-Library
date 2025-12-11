@@ -10,14 +10,14 @@ using Mass = Quantity<0, 0, 1>;
 
 // +
 template <int T, int L, int M>
-Quantity<T, L, M> operator+(Quantity<T, L, M> x, Quantity<T, L, M> y) {
-	return {x.value + y.value};
+Quantity<T, L, M> operator+(Quantity<T, L, M> lhs, Quantity<T, L, M> rhs) {
+	return {lhs.value + rhs.value};
 }
 
 // -
 template <int T, int L, int M>
-Quantity<T, L, M> operator-(Quantity<T, L, M> x, Quantity<T, L, M> y) {
-	return {x.value - y.value};
+Quantity<T, L, M> operator-(Quantity<T, L, M> lhs, Quantity<T, L, M> rhs) {
+	return {lhs.value - rhs.value};
 }
 
 // +=
@@ -33,3 +33,16 @@ Quantity<T, L, M> &operator-=(Quantity<T, L, M> &lhs, Quantity<T, L, M> rhs) {
   lhs.value -= rhs.value;
   return lhs;
 }
+
+// -
+template <int T, int L, int M>
+Quantity<T, L, M> operator-(Quantity<T, L, M> rhs) {
+  return {-rhs.value};
+}
+
+// +
+template <int T, int L, int M>
+Quantity<T, L, M> operator+(Quantity<T, L, M> rhs) {
+  return {+rhs.value};
+}
+
