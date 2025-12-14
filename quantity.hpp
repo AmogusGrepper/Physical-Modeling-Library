@@ -12,30 +12,30 @@ struct Quantity {
 // ==== ADD SUB ====
 // +
 template <int T, int L, int M>
-Quantity<T, L, M> operator+(const Quantity<T, L, M> lhs,
-                            const Quantity<T, L, M> rhs) {
+Quantity<T, L, M>
+operator+(const Quantity<T, L, M> lhs, const Quantity<T, L, M> rhs) {
   return {lhs.value + rhs.value};
 }
 
 // -
 template <int T, int L, int M>
-Quantity<T, L, M> operator-(const Quantity<T, L, M> lhs,
-                            const Quantity<T, L, M> rhs) {
+Quantity<T, L, M>
+operator-(const Quantity<T, L, M> lhs, const Quantity<T, L, M> rhs) {
   return {lhs.value - rhs.value};
 }
 
 // +=
 template <int T, int L, int M>
-Quantity<T, L, M> &operator+=(Quantity<T, L, M> &lhs,
-                              const Quantity<T, L, M> rhs) {
+Quantity<T, L, M> &
+operator+=(Quantity<T, L, M> &lhs, const Quantity<T, L, M> rhs) {
   lhs.value += rhs.value;
   return lhs;
 }
 
 // -=
 template <int T, int L, int M>
-Quantity<T, L, M> &operator-=(Quantity<T, L, M> &lhs,
-                              const Quantity<T, L, M> rhs) {
+Quantity<T, L, M> &
+operator-=(Quantity<T, L, M> &lhs, const Quantity<T, L, M> rhs) {
   lhs.value -= rhs.value;
   return lhs;
 }
@@ -55,15 +55,15 @@ Quantity<T, L, M> operator+(const Quantity<T, L, M> rhs) {
 // ==== MUL DIV ====
 // *
 template <int T1, int L1, int M1, int T2, int L2, int M2>
-Quantity<T1 + T2, L1 + L2, M1 + M2> operator*(const Quantity<T1, L1, M1> lhs,
-                                              const Quantity<T2, L2, M2> rhs) {
+Quantity<T1 + T2, L1 + L2, M1 + M2>
+operator*(const Quantity<T1, L1, M1> lhs, const Quantity<T2, L2, M2> rhs) {
   return {lhs.value * rhs.value};
 }
 
 // /
 template <int T1, int L1, int M1, int T2, int L2, int M2>
-Quantity<T1 - T2, L1 - L2, M1 - M2> operator/(const Quantity<T1, L1, M1> lhs,
-                                              const Quantity<T2, L2, M2> rhs) {
+Quantity<T1 - T2, L1 - L2, M1 - M2>
+operator/(const Quantity<T1, L1, M1> lhs, const Quantity<T2, L2, M2> rhs) {
   return {lhs.value / rhs.value};
 }
 
@@ -113,3 +113,5 @@ using Speed = decltype(Length() / Time());
 using Acceleration = decltype(Speed() / Time());
 using Force = decltype(Mass() * Acceleration());
 using Energy = decltype(Mass() * Speed() * Speed() / 2);
+using Elasticity = decltype(Force() / Length());
+using Viscosity = decltype(Force() / Speed());
