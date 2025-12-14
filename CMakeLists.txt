@@ -26,6 +26,7 @@ include(FetchContent)
     tests/quantity.cpp
     tests/vector2d.cpp
     tests/vector2d_quantity.cpp
+    tests/fields.cpp
   )
 
   target_compile_definitions(test PRIVATE
@@ -50,6 +51,12 @@ include(FetchContent)
     TEST_VECTOR_QUANTITY_DIM
     TEST_VECTOR_QUANTITY_DOT
     TEST_VECTOR_QUANTITY_COMPILETIME
+
+    TEST_BODY_CONSTRUCT
+    TEST_BODY_UPDATE
+    TEST_GRAVITY_FIELD
+    TEST_SPRING_FIELD
+    TEST_FLUID_FRICTION
   )
   
   target_link_libraries(test 
