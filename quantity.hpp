@@ -2,7 +2,8 @@
 
 #include <compare>
 
-template <int T, int L, int M> struct Quantity {
+template <int T, int L, int M>
+struct Quantity {
   double value{};
 
   auto operator<=>(const Quantity &) const = default;
