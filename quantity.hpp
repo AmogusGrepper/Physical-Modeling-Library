@@ -1,3 +1,5 @@
+#pragma once
+
 #include <compare>
 
 template <int T, int L, int M> struct Quantity {
@@ -74,6 +76,18 @@ Quantity<T, L, M> operator*(const Quantity<T, L, M> lhs, const double rhs) {
 template <int T, int L, int M>
 Quantity<T, L, M> operator/(const Quantity<T, L, M> lhs, const double rhs) {
   return {lhs.value / rhs};
+}
+
+// double *
+template <int T, int L, int M>
+Quantity<T, L, M> operator*(const double lhs, const Quantity<T, L, M> rhs) {
+  return {lhs * rhs.value};
+}
+
+// double /
+template <int T, int L, int M>
+Quantity<-T, -L, -M> operator/(const double lhs, const Quantity<T, L, M> rhs) {
+  return {lhs / rhs.value};
 }
 
 // *= double
