@@ -21,17 +21,35 @@ include(FetchContent)
 	)
   FetchContent_MakeAvailable(googletest)
 
-  add_executable(test test.cpp tests/quantity.cpp)
+  add_executable(test 
+    test.cpp 
+    tests/quantity.cpp
+    tests/vector2d.cpp
+    tests/vector2d_quantity.cpp
+  )
 
   target_compile_definitions(test PRIVATE
-    TEST_CONSTRUCT
-    TEST_ADD_SUB
-    TEST_UNARY
-    TEST_DIM_MUL_DIV
-    TEST_SCALAR_OPS
-    TEST_COMPARISONS
-    TEST_COMPILETIME
-    # TEST_LITERALS
+    TEST_QUANTITY_CONSTRUCT
+    TEST_QUANTITY_ADD_SUB
+    TEST_QUANTITY_UNARY
+    TEST_QUANTITY_DIM_MUL_DIV
+    TEST_QUANTITY_SCALAR_OPS
+    TEST_QUANTITY_COMPARISONS
+    TEST_QUANTITY_COMPILETIME
+    TEST_QUANTITY_LITERALS
+    
+    TEST_VECTOR2D_CONSTRUCT
+    TEST_VECTOR2D_ADD_SUB
+    TEST_VECTOR2D_UNARY
+    TEST_VECTOR2D_SCALAR_OPS
+    TEST_VECTOR2D_DOT
+    TEST_VECTOR2D_COMPARISONS
+
+    TEST_VECTOR_QUANTITY_ADD
+    TEST_VECTOR_QUANTITY_SCALAR
+    TEST_VECTOR_QUANTITY_DIM
+    TEST_VECTOR_QUANTITY_DOT
+    TEST_VECTOR_QUANTITY_COMPILETIME
   )
   
   target_link_libraries(test 

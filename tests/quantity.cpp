@@ -1,7 +1,7 @@
 #include "../quantity.hpp"
 #include <gtest/gtest.h>
 
-#ifdef TEST_CONSTRUCT
+#ifdef TEST_QUANTITY_CONSTRUCT
 TEST(Quantity, Construct) {
   Time t{5.0};
   Length l{3.0};
@@ -12,7 +12,7 @@ TEST(Quantity, Construct) {
 }
 #endif
 
-#ifdef TEST_ADD_SUB
+#ifdef TEST_QUANTITY_ADD_SUB
 TEST(Quantity, AddSameDimension) {
   Length a{5.0}, b{3.0};
   auto c = a + b;
@@ -38,7 +38,7 @@ TEST(Quantity, SubAssignSameDimension) {
 }
 #endif
 
-#ifdef TEST_UNARY
+#ifdef TEST_QUANTITY_UNARY
 TEST(Quantity, UnaryPlus) {
   Length l{5.0};
   auto r = +l;
@@ -52,7 +52,7 @@ TEST(Quantity, UnaryMinus) {
 }
 #endif
 
-#ifdef TEST_DIM_MUL_DIV
+#ifdef TEST_QUANTITY_DIM_MUL_DIV
 TEST(Quantity, MultiplyDims) {
   Length l{10.0};
   Time t{2.0};
@@ -75,7 +75,7 @@ TEST(Quantity, DivideDims) {
 }
 #endif
 
-#ifdef TEST_SCALAR_OPS
+#ifdef TEST_QUANTITY_SCALAR_OPS
 TEST(Quantity, MultiplyScalar) {
   Length l{3.0};
   auto r = l * 2.0;
@@ -101,7 +101,7 @@ TEST(Quantity, DivideAssignScalar) {
 }
 #endif
 
-#ifdef TEST_COMPARISONS
+#ifdef TEST_QUANTITY_COMPARISONS
 TEST(Quantity, Comparisons) {
   Length a{5.0}, b{5.0}, c{7.0};
   EXPECT_TRUE(a == b);
@@ -113,7 +113,7 @@ TEST(Quantity, Comparisons) {
 }
 #endif
 
-#ifdef TEST_COMPILETIME
+#ifdef TEST_QUANTITY_COMPILETIME
 TEST(QuantityCompile, SpeedType) {
   Length l{10.0};
   Time t{2.0};
@@ -136,7 +136,7 @@ TEST(QuantityCompile, EnergyType) {
 }
 #endif
 
-#ifdef TEST_LITERALS
+#ifdef TEST_QUANTITY_LITERALS
 TEST(QuantityLiterals, LengthLiteral) {
   auto l = 5.0_m;
   EXPECT_DOUBLE_EQ(l.value, 5.0);
